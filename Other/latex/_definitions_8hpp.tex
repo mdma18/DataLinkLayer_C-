@@ -1,0 +1,92 @@
+\hypertarget{_definitions_8hpp}{}\doxysection{Headers/\+Definitions.hpp File Reference}
+\label{_definitions_8hpp}\index{Headers/Definitions.hpp@{Headers/Definitions.hpp}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Definitions.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_afeda4dc0ed278a1a254cbe808b113dcc}\label{_definitions_8hpp_afeda4dc0ed278a1a254cbe808b113dcc}} 
+typedef std\+::bitset$<$ 8 $>$ {\bfseries z\+BYTE}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a94c3a04b97f81dd5db990b01eb6521a0}\label{_definitions_8hpp_a94c3a04b97f81dd5db990b01eb6521a0}} 
+enum {\bfseries Pos} \{ {\bfseries Mid}
+, {\bfseries Last}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_aef8a3b4898fc3a24efae2b5c729fb95b}\label{_definitions_8hpp_aef8a3b4898fc3a24efae2b5c729fb95b}} 
+constexpr auto {\bfseries NET\+\_\+\+PACKET} = 1024
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a00a402436587d8b945d0b2eb88af8cfb}\label{_definitions_8hpp_a00a402436587d8b945d0b2eb88af8cfb}} 
+constexpr auto {\bfseries MAX\+\_\+\+FRAME} = 256
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a45872704b889c4993b993788f52cf534}\label{_definitions_8hpp_a45872704b889c4993b993788f52cf534}} 
+constexpr auto {\bfseries MAX\+\_\+\+PKT} = 184
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_aa470549645dae687455766ce86042ac6}\label{_definitions_8hpp_aa470549645dae687455766ce86042ac6}} 
+constexpr auto {\bfseries GEN} = 0x47
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_aec0fcb50aaabef345a28f84b37d6120a}\label{_definitions_8hpp_aec0fcb50aaabef345a28f84b37d6120a}} 
+constexpr auto {\bfseries HEADER} = 0x\+F0
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a4c68c111eca0a468d917ddf1441c3d56}\label{_definitions_8hpp_a4c68c111eca0a468d917ddf1441c3d56}} 
+constexpr auto {\bfseries TRAILER} = 0x\+CC
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a80f1b4a962afe6957ce050a341b0d33f}\label{_definitions_8hpp_a80f1b4a962afe6957ce050a341b0d33f}} 
+constexpr auto {\bfseries ESCAPE} = 0x\+FF
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a34c0e2084a47315eba6ed89d953deb1d}\label{_definitions_8hpp_a34c0e2084a47315eba6ed89d953deb1d}} 
+constexpr auto {\bfseries FRAME\+\_\+\+DATA} = 0x11
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_abd50fff2f57318ad44f8e62b578271ea}\label{_definitions_8hpp_abd50fff2f57318ad44f8e62b578271ea}} 
+constexpr auto {\bfseries LAST\+\_\+\+FRAME\+\_\+\+IND} = 0x22
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_ab5ca163bc796ac091283e934419b3816}\label{_definitions_8hpp_ab5ca163bc796ac091283e934419b3816}} 
+constexpr auto {\bfseries POS\+\_\+\+ACK} = 0x44
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a2c88434ec9a175dd6f1849a6270644dc}\label{_definitions_8hpp_a2c88434ec9a175dd6f1849a6270644dc}} 
+constexpr auto {\bfseries NEG\+\_\+\+ACK} = 0x88
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_a92cc201c6ccb0a1a71072603741a051d}\label{_definitions_8hpp_a92cc201c6ccb0a1a71072603741a051d}} 
+constexpr auto {\bfseries BYTE} = 8
+\item 
+\mbox{\Hypertarget{_definitions_8hpp_acebbf1f062449f297c5773d17181640d}\label{_definitions_8hpp_acebbf1f062449f297c5773d17181640d}} 
+constexpr auto {\bfseries MAX\+\_\+\+FRAMES} = 6
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+your name (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/01-\/03
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}

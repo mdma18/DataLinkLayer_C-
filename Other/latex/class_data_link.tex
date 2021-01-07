@@ -1,0 +1,94 @@
+\hypertarget{class_data_link}{}\doxysection{Data\+Link Class Reference}
+\label{class_data_link}\index{DataLink@{DataLink}}
+
+
+Collaboration diagram for Data\+Link\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_link_add54d819c8c45c40010ef1b8e351d0b3}{Data\+Link}} (bool b\+Flag, int pkt\+Size, bool $\ast$v\+Packet)
+\begin{DoxyCompactList}\small\item\em Construct a new Data Link object, called by NET. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_link_aae7dde026f208546c28aadd516eaf693}{Data\+Link}} (bool b\+Flag, std\+::string s\+Frame)
+\begin{DoxyCompactList}\small\item\em Construct a new Data Link object, called by PHY. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_link_a288ff1cc3eec5b4a272c4ea564a52811}\label{class_data_link_a288ff1cc3eec5b4a272c4ea564a52811}} 
+virtual \mbox{\hyperlink{class_data_link_a288ff1cc3eec5b4a272c4ea564a52811}{$\sim$\+Data\+Link}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Data Link object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_link_a1468b66c4dbf2aea08bb2c7b923778a7}{Interface}} (bool b\+Flag)
+\begin{DoxyCompactList}\small\item\em Control unit which provides services to process packets/frames for NET/\+PHY. Builds Frames for PHY layer Builds Packets for NET layer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_link_a30ff111a9121352b62f1e3510a8c4a8b}\label{class_data_link_a30ff111a9121352b62f1e3510a8c4a8b}} 
+void \mbox{\hyperlink{class_data_link_a30ff111a9121352b62f1e3510a8c4a8b}{Send\+Frames}} ()
+\begin{DoxyCompactList}\small\item\em Once all necessary Frames have been built, transmit them randomly through PHY. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_link_a27bfb19d16dbf9fecd8de5aaa6bc9fbd}\label{class_data_link_a27bfb19d16dbf9fecd8de5aaa6bc9fbd}} 
+void {\bfseries Error\+Detection} (std\+::bitset$<$ MAX\+\_\+\+FRAME $>$ m\+Packet)
+\item 
+\mbox{\Hypertarget{class_data_link_a1231ec41b39fabf2177ff773b013ff58}\label{class_data_link_a1231ec41b39fabf2177ff773b013ff58}} 
+std\+::string {\bfseries getR} ()
+\item 
+\mbox{\Hypertarget{class_data_link_abeb39dd2edb6319043b56e044af59d9f}\label{class_data_link_abeb39dd2edb6319043b56e044af59d9f}} 
+std\+::string {\bfseries Array\+To\+String} (bool $\ast$v\+Packet)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_link_add54d819c8c45c40010ef1b8e351d0b3}\label{class_data_link_add54d819c8c45c40010ef1b8e351d0b3}} 
+\index{DataLink@{DataLink}!DataLink@{DataLink}}
+\index{DataLink@{DataLink}!DataLink@{DataLink}}
+\doxysubsubsection{\texorpdfstring{DataLink()}{DataLink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+Link\+::\+Data\+Link (\begin{DoxyParamCaption}\item[{bool}]{b\+Flag,  }\item[{int}]{pkt\+Size,  }\item[{bool $\ast$}]{v\+Packet }\end{DoxyParamCaption})}
+
+
+
+Construct a new Data Link object, called by NET. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Flag} & Flag to decide whether to send frames to PHY or NET \\
+\hline
+{\em pkt\+Size} & Size of Packet to transmit \\
+\hline
+{\em v\+Packet} & Packet to transmit by NET \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_link_aae7dde026f208546c28aadd516eaf693}\label{class_data_link_aae7dde026f208546c28aadd516eaf693}} 
+\index{DataLink@{DataLink}!DataLink@{DataLink}}
+\index{DataLink@{DataLink}!DataLink@{DataLink}}
+\doxysubsubsection{\texorpdfstring{DataLink()}{DataLink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+Link\+::\+Data\+Link (\begin{DoxyParamCaption}\item[{bool}]{b\+Flag,  }\item[{std\+::string}]{s\+Frame }\end{DoxyParamCaption})}
+
+
+
+Construct a new Data Link object, called by PHY. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Flag} & Flag to decide whether to send frames to PHY or NET \\
+\hline
+{\em s\+Frame} & Packet to transmit by PHY \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_link_a1468b66c4dbf2aea08bb2c7b923778a7}\label{class_data_link_a1468b66c4dbf2aea08bb2c7b923778a7}} 
+\index{DataLink@{DataLink}!Interface@{Interface}}
+\index{Interface@{Interface}!DataLink@{DataLink}}
+\doxysubsubsection{\texorpdfstring{Interface()}{Interface()}}
+{\footnotesize\ttfamily void Data\+Link\+::\+Interface (\begin{DoxyParamCaption}\item[{bool}]{b\+Flag }\end{DoxyParamCaption})}
+
+
+
+Control unit which provides services to process packets/frames for NET/\+PHY. Builds Frames for PHY layer Builds Packets for NET layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Flag} & Flag indication by NET/\+PHY \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Headers/\mbox{\hyperlink{_data_link_8hpp}{Data\+Link.\+hpp}}\item 
+Data\+Link.\+cpp\end{DoxyCompactItemize}
