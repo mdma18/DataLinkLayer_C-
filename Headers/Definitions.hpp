@@ -39,10 +39,11 @@ constexpr auto TRAILER = 0xCC;         // Indicates the end of the DLL frame.
 constexpr auto ESCAPE = 0xFF;          // Escapes the next byte to avoid frame synchronisation issues.
 constexpr auto FRAME_DATA = 0x11;      // DLL frame contains a part of the encapsulated NET packet.
 constexpr auto LAST_FRAME_IND = 0x22;  // DLL frame contains the last part of the encapsulated NET packet
-constexpr auto POS_ACK = 0x44;         // Dummy DLL frame which acknowledges the frame whose sequence number is specified in the NET packet part. See Table 7.
-constexpr auto NEG_ACK = 0x88;
-constexpr auto BYTE = 8;
-constexpr auto MAX_FRAMES = 6;
+constexpr auto POS_ACK = 0x44;         // Control byte for dummy DLL frame which acknowledges the frame whose sequence number is specified in the NET packet part. See Table 7.
+constexpr auto NEG_ACK = 0x88;         // Control byte for dummy DLL frame which rejects the current frame.
+constexpr auto BYTE = 8;               // Byte size.
+constexpr auto MAX_FRAMES = 6;         // Max frames in buffer.
+constexpr auto POLY = 0x23;            // CRC-6-CDMA2000-B polynomial.
 
 enum Pos {
   Mid,
@@ -50,15 +51,5 @@ enum Pos {
 };
 
 typedef std::bitset<8> zBYTE;  // Byte varaible, 8-bits.
-
-// typedef struct {
-//   const zBYTE fixedHeader;                    // What type of frame?
-//   const zBYTE nCtrl;                          // Sequence number
-//   const zBYTE nSeq;                           // Acknowledgement number
-//   const zBYTE nLength;                        // Length of frame (10-32) bytes.
-//   std::vector<std::bitset<BYTE>> vNetPacket;  // NET packet, 1-23 bytes long
-//   const zBYTE nChecksum;                      // CRC-6 Checksum
-//   const zBYTE fixedTrailer;                   // End of frame indicator.
-// } Frame;                                      // Frame
 
 #endif  // HEADERS_DEFINITIONS_HPP_

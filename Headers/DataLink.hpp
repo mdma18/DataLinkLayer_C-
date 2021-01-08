@@ -32,7 +32,7 @@ class DataLink {
    * @param bFlag Flag to decide whether to send frames to PHY or NET
    * @param sFrame Packet to transmit by PHY
    */
-  DataLink(bool bFlag, std::string sFrame);
+  DataLink(bool bFlag, const uint8_t* uReceived);
   /**
    * @brief Destroy the Data Link object
    * 
@@ -51,6 +51,7 @@ class DataLink {
    * 
    */
   void SendFrames();
+  void SendPackets();
   void ErrorDetection(std::bitset<MAX_FRAME> mPacket);
 
   //void Unstuff();
@@ -64,7 +65,8 @@ class DataLink {
   /* Attributes */
 
   std::string sTransmit;
-  zBYTE zRTA;
+  const uint8_t* mReceived;
+  int mPacketSize;
   /**
    * @brief Map container which stores frames indexed by sequence numbers.
    * 

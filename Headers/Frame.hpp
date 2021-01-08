@@ -24,6 +24,12 @@ class Frame {
   */
   Frame(Pos framePos, int nSeq, std::string sSubPacket);
   /**
+   * @brief Construct a new Frame object used by PHY
+   * 
+   * @param uFrame Frame in unsigned char array format.
+   */
+  Frame(const uint8_t* uFrame);
+  /**
    * @brief Destroy the Frame object
    * 
    */
@@ -40,6 +46,41 @@ class Frame {
    * 
    */
   void Stringify();
+  /**
+   * @brief Deframes a received frame and checks for errors. 
+   * 
+   * @return true if no errors.
+   * @return false if errors found.
+   */
+  bool Deframe();
+  /**
+   * @brief Construct a Checksum to append in the frame.
+   * 
+   * @param crc Payload data
+   * @param buf Buffer for operation
+   * @param len Length of message
+   * @return std::bitset<BYTE> A byte with the remainder of the operation.
+   */
+  std::bitset<BYTE> Checksum(uint8_t crc, const unsigned char* buf, size_t len);
+  /**
+   * @brief Get the Sequence member variable for frame indexing
+   * 
+   * @return int Sequence number which belongs to this frame.
+   */
+  int GetSequence();
+  /**
+   * @brief Get the Sub-Packet for the NET.
+   * 
+   * @return std::bitset<MAX_PKT> Deframed sub-packet.
+   */
+  std::bitset<MAX_PKT> GetPacket();
+  /**
+   * @brief Get the Flag attribute.
+   * 
+   * @return true Checksum passed.
+   * @return false Checksum failed.
+   */
+  bool GetFlag();
 
  private:
   /* Defined to prevent copying */
@@ -77,5 +118,15 @@ class Frame {
    * 
    */
   std::bitset<BYTE> mTrailer;
+  /**
+   * @brief Variable used for communication via rfm12b radio module
+   * 
+   */
+  const uint8_t* mFrame;
+  /**
+   * @brief Used for Checksum 
+   * 
+   */
+  bool bCheck;
 };
 #endif  // HEADERS_FRAME_HPP_
