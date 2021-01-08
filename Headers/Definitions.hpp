@@ -13,6 +13,8 @@
 #define HEADERS_DEFINITIONS_HPP_
 
 /* Standard Libraries */
+#include <avr/interrupt.h>
+#include <avr/io.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -20,6 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <util/delay.h>
 
 #include <algorithm>
 #include <bitset>
@@ -29,6 +32,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
+
+//#include the library for the RFM12 module and the UART
+#include "rfm12.h"
 
 constexpr auto NET_PACKET = 1024;      // NET Packet size.
 constexpr auto MAX_FRAME = 256;        // Max Frame size.

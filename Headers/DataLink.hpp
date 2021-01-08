@@ -16,7 +16,7 @@
 #include "Frame.hpp"
 
 class DataLink {
-  /* Logical Link Layer */
+  /* Logical Link Sublayer */
  public:
   /**
    * @brief Construct a new Data Link object, called by NET
@@ -51,21 +51,42 @@ class DataLink {
    * 
    */
   void SendFrames();
+  /**
+   * @brief Method to send a full packet to the NET
+   * 
+   */
   void SendPackets();
-  void ErrorDetection(std::bitset<MAX_FRAME> mPacket);
-
-  //void Unstuff();
-
+  /**
+   * @brief Converts a boolean array pointer to std::string
+   * 
+   * @param vPacket NET packet in boolean array format
+   * @return std::string NET packet in string format used for processing.
+   */
   std::string ArrayToString(bool* vPacket);
 
-  // void ErrorCtrl();
-  // void FlowCtrl();
+  /* PHY & MAC Sublayer */
+  /**
+   * @brief CSMA-CD Algorithm with transmission using the rfm12b library.
+   * 
+   */
+  void Tick();
 
  private:
   /* Attributes */
-
+  /**
+   * @brief NET packet to be transmitted.
+   * 
+   */
   std::string sTransmit;
+  /**
+   * @brief Received encapsulated NET packet frame.
+   * 
+   */
   const uint8_t* mReceived;
+  /**
+   * @brief Size of NET packet to be transmitted.
+   * 
+   */
   int mPacketSize;
   /**
    * @brief Map container which stores frames indexed by sequence numbers.

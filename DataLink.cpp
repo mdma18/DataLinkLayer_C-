@@ -100,6 +100,78 @@ void DataLink::SendPackets() {
 //==============================================================================================
 
 //==============================================================================================
+void DataLink::Tick(void) {
+// Collision detection is enabled by default
+#if !(RFM12_NOCOLLISIONDETECTION)
+  uint16_t uStatus;
+
+  // Start with a channel free count of 16, this is necessary for the ASK receive feature to work
+  static uint8_t nChannel = 16;  // Static local variables produce smaller code size than globals
+#endif
+
+// Debug
+#if RFM12_UART_DEBUG
+  static uint8_t uOldState;
+  uint8_t uState = ctrl.rfm12_state;
+  if (uOldState != uState) {
+    uart_putstr("mode change: ");
+    switch (uState) {
+      case IDLE:
+        uart_putc('i');
+        break;
+      case ACTIVE:
+        uart_putc('r');
+        break;
+      case TX_STATE:
+        uart_putc('t');
+        break;
+      default:
+        uart_putc('?');
+    }
+    uart_putstr("\r\n");
+    uOldState = uState;
+  }
+#endif
+
+  // Don't disturb RFM12 if transmitting or receiving
+  if (ctrl.rfm12_state != STATE_RX_IDLE) {
+    return;
+  }
+
+//collision detection is enabled by default
+#if !(RFM12_NOCOLLISIONDETECTION)
+  //disable the interrupt (as we're working directly with the transceiver now)
+  //hint: we could be losing an interrupt here, because we read the status register.
+  //this applys for the Wakeup timer, as it's flag is reset by reading.
+  RFM12_INT_OFF();
+  status = rfm12_read(RFM12_CMD_STATUS);
+  RFM12_INT_ON();
+
+  //  Detect a carrier
+  if (status & RFM12_STATUS_RSSI) {
+    // Yes: reset counter and return
+    nChannel = CHANNEL_FREE_TIME;
+    return;
+  }
+  // No
+
+  // Is the channel free long enough ?
+  if (nChannel != 0) {
+    // No:
+    nChannel--;  // decrement counter
+    return;
+  }
+  // Yes: we can begin transmitting
+#endif
+
+  // Do we have something to transmit?
+  if (ctrl.txstate == STATUS_OCCUPIED) {
+    rfm12_start_tx();
+  }
+}
+//==============================================================================================
+
+//==============================================================================================
 int main() {
   bool ar[] = {0, 0, 0, 0, 0, 0, 1, 0,
                0, 0, 0, 0, 0, 0, 0, 0,
